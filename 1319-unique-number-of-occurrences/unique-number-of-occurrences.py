@@ -4,17 +4,12 @@ class Solution(object):
         :type arr: List[int]
         :rtype: bool
         """
-        hash_map = {}
+        from collections import Counter
         
-        for a in arr:
-            if a in hash_map.keys():
-                hash_map[a]+=1
-            else:
-                hash_map[a]=1
-        counts = hash_map.values()
-        print(counts)
-        for i, n in enumerate(counts):
-            if n in counts[:i] or n in counts[i+1:]:
+        hash_map = Counter(arr).values()
+        print(hash_map)
+        for i, n in enumerate(hash_map):
+            if n in hash_map[:i] or n in hash_map[i+1:]:
                 return False
         return True
         
