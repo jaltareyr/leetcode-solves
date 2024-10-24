@@ -9,9 +9,7 @@ class Solution(object):
         flag1 = False
         flag2 = False
 
-        print(set(list(word1)), set(list(word2)))
-
-        if set(list(word1)) ==set(list(word2)):
+        if set(word1) == set(word2):
             flag1 = True
         
         dict1 = {}
