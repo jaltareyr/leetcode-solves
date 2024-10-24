@@ -12,4 +12,4 @@ class Solution(object):
         dict1 = Counter(word1)
         dict2 = Counter(word2)
         
-        return sorted(dict1.values())==sorted(dict2.values())
+        return Counter(dict1.values()) == Counter(dict2.values())
