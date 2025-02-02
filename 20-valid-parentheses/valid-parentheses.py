@@ -4,25 +4,16 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        sets = {
-            "(": ")", "{": "}", "[":"]"
-        }
+        sets = {")": "(", "}": "{", "]":"["}
         stack = []
         for char in s:
-            if char in sets.keys():
+            if char in sets.values(): # Opening brackets
                 stack.append(char)
-            else:
-                if stack:
-                    if char==sets[stack[-1]]:
-                        stack.pop()
-                    else:
-                        return False                        
-                else:
+            elif char in sets:
+                if not stack or stack.pop()!=sets[char]:
                     return False
-        
-        if stack:
-            return False
-        else:
-            return True
+            else:
+                return False
+        return not stack
 
         
