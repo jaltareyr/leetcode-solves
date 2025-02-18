@@ -4,11 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        mymap = {}
+        mymap = set()
 
         for i  in nums:
             if i in mymap:
                 return i
             else:
-                mymap[i] = 1
+                mymap.add(i)
         
