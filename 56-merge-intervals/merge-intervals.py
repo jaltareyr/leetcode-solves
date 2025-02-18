@@ -9,15 +9,15 @@ class Solution(object):
 
         i = 0
         n = len(intervals)
-        while i < n-1:
+        result = [intervals[0]]
+        
+        for i in range(1, n):
+            prev = result[-1]
+            curr = intervals[i]
 
-            if intervals[i][1] >= intervals[i + 1][0]: # overlap found
-                intervals[i + 1][0] = min(intervals[i][0], intervals[i + 1][0])
-                intervals[i + 1][1] = max(intervals[i][1], intervals[i + 1][1]) 
-                intervals.pop(i)
-                n = len(intervals)
+            if prev[1] >= curr[0]:
+                prev[1] = max(prev[1], curr[1])
             else:
-                i+=1
-        return intervals
-
+                result.append(curr)
+        return result
         
