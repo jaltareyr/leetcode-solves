@@ -11,15 +11,19 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        
+        count = [-1, 0]
         def inorder(root):
             if not root:
                 return
             inorder(root.left)
+            if count[1] >= k:
+                return
+            count[0] = root.val
+            count[1] += 1
             result.append(root.val)
             inorder(root.right)
         
         result = []
         inorder(root)
-        return result[k - 1]
+        return count[0]
         
