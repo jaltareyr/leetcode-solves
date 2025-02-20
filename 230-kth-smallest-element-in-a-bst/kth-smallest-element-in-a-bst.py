@@ -13,8 +13,6 @@ class Solution(object):
         """
         
         def inorder(root):
-            if len(result) == k:
-                return result[-1]
             if not root:
                 return
             inorder(root.left)
