@@ -4,6 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
+        if len(set(nums)) < 3:
+            return False
         first = float('inf')
         second = float('inf')
 
