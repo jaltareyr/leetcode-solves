@@ -4,18 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        i = 0
-        low = 0
-        high = len(nums)-1
+        for i in range(1, len(nums)):
+            key = nums[i]
+            j = i - 1
+            while j >= 0 and key < nums[j]:
+                nums[j + 1] = nums[j]
+                j -=1
+            nums[j + 1] = key
 
-        while i<=high:
-            if nums[i]==0:
-                nums[i], nums[low] = nums[low], nums[i]
-                low+=1
-                i+=1
-            elif nums[i]==2:
-                nums[i], nums[high] = nums[high], nums[i]
-                high-=1
-            else:
-                i+=1
+        print(nums)
             
