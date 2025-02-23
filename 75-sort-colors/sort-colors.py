@@ -4,6 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
+        if len(nums) <= 1:
+            return
         for i in range(1, len(nums)):
             key = nums[i]
             j = i - 1
@@ -11,6 +13,4 @@ class Solution(object):
                 nums[j + 1] = nums[j]
                 j -=1
             nums[j + 1] = key
-
-        print(nums)
             
