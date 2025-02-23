@@ -6,6 +6,9 @@ class Solution(object):
         """
         if len(nums) <= 1:
             return
+        if len(nums) == 2:
+            if nums[0] > nums[1]:
+                nums[0], nums[1] = nums[1], nums[0]
         for i in range(1, len(nums)):
             key = nums[i]
             j = i - 1
